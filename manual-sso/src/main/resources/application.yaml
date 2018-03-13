@@ -1,0 +1,24 @@
+cas:
+  host: http://somehost
+
+facebook:
+  client:
+    clientId: 11727d7a-a4b5-11e7-abc4-cec278b6b50a
+    clientSecret: 3a6d0710-1c02-4e17-b734-c6fc27952874
+    accessTokenUri: ${cas.host}/oauth2.0/token
+    userAuthorizationUri: ${cas.host}/oauth2.0/authorize
+    pre-established-redirect-uri: http://10.24.11.1:8082
+  resource:
+    userInfoUri: ${cas.host}/oauth2.0/profile
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+
+server:
+  contextPath: /
+  port: 8082
+
+spring:
+  session:
+    store-type: none
