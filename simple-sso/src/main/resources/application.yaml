@@ -1,0 +1,28 @@
+cas:
+  host: http://somshost
+
+security:
+  oauth2:
+    client:
+      client-id: 11727d7a-a4b5-11e7-abc4-cec278b6b50a
+      client-secret: 3a6d0710-1c02-4e17-b734-c6fc27952874
+      access-token-uri: ${cas.host}/oauth2.0/token
+      user-authorization-uri: ${cas.host}/oauth2.0/authorize
+      use-current-uri: true
+      pre-established-redirect-uri: http://10.24.11.1:8081/login
+    resource:
+      user-info-uri: ${cas.host}/oauth2.0/profile
+      filter-order: -100
+    sso:
+      login-path: /login
+logging:
+  level:
+    org.springframework.security: DEBUG
+
+server:
+  contextPath: /
+  port: 8081
+
+spring:
+  session:
+    store-type: none
